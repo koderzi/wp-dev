@@ -1,21 +1,18 @@
 {
-	"name": "WP Dev",
+	"name": "wp-dev",
 	"dockerComposeFile": "docker-compose.yaml",
 	"service": "wordpress",
-	// "workspaceFolder": "/var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}",
-	"workspaceFolder": "/var/www/html/wp-content/plugins/",
+	"workspaceFolder": "/",
 	"shutdownAction": "stopCompose",
-	// Use this environment variable if you need to bind mount your local source code into a new container.
-	// "remoteEnv": {
-	// 	"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
-	// },
-	// "forwardPorts": [80],
 	"customizations": {
         "vscode": {
 			"settings": {
 				"php.validate.executablePath": "/usr/local/bin/php"
 			},
-            "extensions": []
+            "extensions": [
+				"eamodio.gitlens"
+			]
         }
-    }
+    },
+	"postCreateCommand": "apt-get update && apt-get install -y git"
 }
