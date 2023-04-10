@@ -14,5 +14,5 @@
 			]
 		}
 	},
-	"postCreateCommand": "dir=$(find /workspaces -maxdepth 1 -type d | grep -v '^/workspaces$' | head -n 1 | xargs basename) ; ln -s '/workspaces/$dir' '/var/www/html/wp-content/plugins/$dir' ; apt-get update && apt-get install -y git"
+	"postCreateCommand": "apt-get update && apt-get install -y git"
 }
