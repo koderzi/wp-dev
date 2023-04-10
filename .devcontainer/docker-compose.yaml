@@ -31,6 +31,6 @@ services:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mywordpresssite
 
-volumes:
-  db_data:
-  wp_data:
+# volumes:
+#   db_data:
+#   wp_data:
