@@ -10,8 +10,8 @@ services:
     restart: always
     ports:
       - "8080:80"
-    # volumes:
-    #   - wp_data:/var/www/html
+    volumes:
+      - wp_data:/var/www/html
     environment:
       WORDPRESS_DB_HOST: mysql
       WORDPRESS_DB_NAME: mywordpresssite
@@ -22,8 +22,8 @@ services:
   mysql:
     container_name: wordpress_mysql
     image: mysql:latest
-    # volumes:
-    #   - db_data:/var/lib/mysql
+    volumes:
+      - db_data:/var/lib/mysql
     ports:
       - "3306:3306"
     restart: always
@@ -31,6 +31,6 @@ services:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mywordpresssite
 
-# volumes:
-#   db_data:
-#   wp_data:
+volumes:
+  db_data:
+  wp_data:
