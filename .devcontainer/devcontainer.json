@@ -14,6 +14,6 @@
 			]
 		}
 	},
-	"postCreateCommand": "apt-get update && apt-get install -y git",
-	"postAttachCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; dir=$(basename $d) && sh /workspaces/$dir/.devcontainer/dev-load.sh; done"
+	"postCreateCommand": "sh ./dev-build.sh",
+	"postAttachCommand": "sh ./dev-embed.sh"
 }
