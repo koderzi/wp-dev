@@ -33,3 +33,5 @@ for t in $themes ; do
         ln -s $t /var/www/html/wp-content/plugins/$theme;
     fi
 done
+find /var/www/html/wp-content/plugins/ -type l ! -exec test -e {} \; -delete
+find /var/www/html/wp-content/themes/ -type l ! -exec test -e {} \; -delete
