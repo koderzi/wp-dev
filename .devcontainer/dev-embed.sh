@@ -26,11 +26,11 @@ for t in $themes ; do
     if [ "$theme" = "*" ]; then
         continue;
     fi;
-    if [ -L /var/www/html/wp-content/plugins/$theme ] && [ $(readlink -f /var/www/html/wp-content/plugins/$theme) != $t ]; then
-        rm /var/www/html/wp-content/plugins/$theme;
+    if [ -L /var/www/html/wp-content/themes/$theme ] && [ $(readlink -f /var/www/html/wp-content/themes/$theme) != $t ]; then
+        rm /var/www/html/wp-content/themes/$theme;
     fi 
-    if [ ! -L /var/www/html/wp-content/plugins/$theme ]; then 
-        ln -s $t /var/www/html/wp-content/plugins/$theme;
+    if [ ! -L /var/www/html/wp-content/themes/$theme ]; then 
+        ln -s $t /var/www/html/wp-content/themes/$theme;
     fi
 done
 find /var/www/html/wp-content/plugins/ -type l ! -exec test -e {} \; -delete
