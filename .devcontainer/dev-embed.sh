@@ -19,7 +19,7 @@ for p in $plugins ; do
 done
 themes=/workspaces/$dir/themes/*/
 for t in $themes ; do
-    theme=$(basename $p);
+    theme=$(basename $t);
     if [ -L /var/www/html/wp-content/plugins/$theme ] && [ $(readlink -f /var/www/html/wp-content/plugins/$theme) != $t ]; then
         rm /var/www/html/wp-content/plugins/$theme;
     fi 
