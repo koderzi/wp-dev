@@ -15,5 +15,5 @@
 		}
 	},
 	"postCreateCommand": "apt-get update && apt-get install -y git",
-	"postAttachCommand": "sh ./.devcontainer/dev-embed.sh"
+	"postAttachCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; dir=$(basename $d) && sh /workspaces/$dir/.devcontainer/dev-embed.sh; done"
 }
