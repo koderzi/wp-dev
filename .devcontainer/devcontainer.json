@@ -14,7 +14,6 @@
 			]
 		}
 	},
-	"postCreateCommand": "touch ./locate.txt"
-	// "postCreateCommand": "sh ./dev-build.sh",
-	// "postAttachCommand": "sh ./dev-embed.sh"
+	"postCreateCommand": "sh ./.devcontainer/dev-build.sh",
+	"postAttachCommand": "sh ./.devcontainer/dev-embed.sh"
 }
