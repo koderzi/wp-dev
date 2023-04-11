@@ -10,6 +10,9 @@ done
 plugins=/workspaces/$dir/plugins/*/
 for p in $plugins ; do
     plugin=$(basename $p);
+    if [ "$plugin" = "*" ]; then
+        continue;
+    fi;
     if [ -L /var/www/html/wp-content/plugins/$plugin ] && [ $(readlink -f /var/www/html/wp-content/plugins/$plugin) != $p ]; then
         rm /var/www/html/wp-content/plugins/$plugin;
     fi 
@@ -20,6 +23,9 @@ done
 themes=/workspaces/$dir/themes/*/
 for t in $themes ; do
     theme=$(basename $t);
+    if [ "$theme" = "*" ]; then
+        continue;
+    fi;
     if [ -L /var/www/html/wp-content/plugins/$theme ] && [ $(readlink -f /var/www/html/wp-content/plugins/$theme) != $t ]; then
         rm /var/www/html/wp-content/plugins/$theme;
     fi 
