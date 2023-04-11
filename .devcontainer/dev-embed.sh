@@ -1,5 +1,3 @@
-#!/bin/sh
-
 for w in /workspaces/*/ ; do
     if [ ! -d "$w/.devcontainer" ]; then
         continue
