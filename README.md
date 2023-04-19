@@ -29,8 +29,8 @@ To include a plugin or theme from other repositories, follow the steps below:
 2. Run the VSCode command ">Dev Containers: Attach to Running Container" then select "/wordpress_web".
 3. A new window will appear. Go to source control, click reload if git is not available.
 4. Click clone repository to clone your plugin or theme repository to the correct folder:
-   - Plugin: /workspaces/<your forked repository folder name>/plugins
-   - Theme: /workspaces/<your forked repository folder name>/themes
+   - Plugin: /workspaces/-your forked repository folder name-/plugins
+   - Theme: /workspaces/-your forked repository folder name-/themes
 5. Then click open to open the cloned repository to start developing.
 
 > Note: This repository is intended for development purposes only. Do not use it in production environments.
