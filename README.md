@@ -16,7 +16,7 @@ Before using this repository, you need to have the following installed on your s
 
 To use this repository, follow the steps below:
 
-1. Fork this repository by clicking on the "Fork" button on the top right corner of the page.
+1. [Duplicate](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository) this repository.
 2. Open your forked folder in VSCode using the command ">Dev Containers: Clone Repositories in Named Container Volume". You can name your container for easy referencing.
 3. Once the container is ready, you can go to http://localhost:8080/wp-admin to start configuring your WordPress.
 4. You can put your dependency plugin or theme in the folder provided.
