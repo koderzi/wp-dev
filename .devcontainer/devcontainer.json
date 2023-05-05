@@ -10,7 +10,8 @@
 				"php.validate.executablePath": "/usr/local/bin/php"
 			},
 			"extensions": [
-				"eamodio.gitlens"
+				"eamodio.gitlens",
+				"wordpresstoolbox.wordpress-toolbox"
 			]
 		}
 	},
