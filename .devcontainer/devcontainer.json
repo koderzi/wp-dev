@@ -11,7 +11,8 @@
 			},
 			"extensions": [
 				"eamodio.gitlens",
-				"wordpresstoolbox.wordpress-toolbox"
+				"wordpresstoolbox.wordpress-toolbox",
+				"bmewburn.vscode-intelephense-client"
 			]
 		}
 	},
