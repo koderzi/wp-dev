@@ -92,6 +92,6 @@
 			]
 		}
 	},
-	"postCreateCommand": "apt-get update && apt-get install -y git && read -p 'Enter your git username: ' git_username && read -p 'Enter your git email: ' git_email && git config --global user.name $git_username && git config --global user.email $git_email",
+	"postCreateCommand": "apt-get update && apt-get install -y git",
 	"postAttachCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; dir=$(basename $d) && sh /workspaces/$dir/.devcontainer/dev-embed.sh; done"
 }
