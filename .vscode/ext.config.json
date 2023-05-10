@@ -1,7 +1,0 @@
-{
-    "disabled": [
-        "vscode.php-language-features"
-    ],
-    "autoReload": false,
-    "openInNewWindow": true
-}
