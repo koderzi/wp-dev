@@ -3,5 +3,5 @@
         "vscode.php-language-features"
     ],
     "autoReload": false,
-    "openInNewWindow": false
+    "openInNewWindow": true
 }
