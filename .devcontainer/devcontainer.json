@@ -93,5 +93,5 @@
 		}
 	},
 	"postCreateCommand": "apt-get update && apt-get install -y git",
-	"postAttachCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; dir=$(basename $d) && sh /workspaces/$dir/.devcontainer/configure-folder.sh; sh /workspaces/$dir/.devcontainer/configure-git.sh; done"
+	"postAttachCommand": "apt-get update; for d in /workspaces/*/; do if [ ! -d $d/.devcontainer ]; then continue; fi; dir=$(basename $d) && sh /workspaces/$dir/.devcontainer/configure-folder.sh; sh /workspaces/$dir/.devcontainer/configure-git.sh; done"
 }
