@@ -21,6 +21,14 @@ To use this repository, follow the steps below:
 3. Once the container is ready, you can go to http://localhost:8080/wp-admin to start configuring your WordPress.
 4. You can put your dependency plugin or theme in the folder provided.
 
+## Configure wordpress linting
+
+Disable the built-in VSCode PHP Language Features.
+
+1. Go to Extensions.
+2. Search for @builtin php
+3. Disable PHP Language Features. Leave PHP Language Basics enabled for syntax highlighting.
+
 ## How to include plugin or theme from other repositories
 
 To include a plugin or theme from other repositories, follow the steps below:
