@@ -12,6 +12,7 @@ services:
       - "8080:80"
     volumes:
       - wp_data:/var/www/html
+    command: /bin/sh -c "chown www-data:www-data wp-content wp-content/plugins wp-content/themes && exec apache2-foreground"
     environment:
       WORDPRESS_DB_HOST: mysql
       WORDPRESS_DB_NAME: mywordpresssite
