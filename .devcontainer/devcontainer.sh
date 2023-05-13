@@ -58,6 +58,10 @@ find /var/www/html/wp-content/plugins/ -type l ! -exec test -e {} \; -delete
 find /var/www/html/wp-content/themes/ -type l ! -exec test -e {} \; -delete
 
 # Change ownership of files and directories inside plugins and themes folders
+
+chown -R www-data:www-data /var/www/html/wp-content/themes
+chown -R www-data:www-data /var/www/html/wp-content/plugins
+
 plugins=/workspaces/$dir/plugins
 for p in $plugins/* ; do
     if [ -d "$p" ]; then
