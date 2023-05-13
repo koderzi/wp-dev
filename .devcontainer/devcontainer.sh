@@ -56,3 +56,5 @@ for t in $themes ; do
 done
 find /var/www/html/wp-content/plugins/ -type l ! -exec test -e {} \; -delete
 find /var/www/html/wp-content/themes/ -type l ! -exec test -e {} \; -delete
+
+echo "Plugins and themes folders have been linked."
