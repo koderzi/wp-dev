@@ -57,4 +57,18 @@ done
 find /var/www/html/wp-content/plugins/ -type l ! -exec test -e {} \; -delete
 find /var/www/html/wp-content/themes/ -type l ! -exec test -e {} \; -delete
 
-echo "Plugins and themes folders have been linked."
+# Change ownership of files and directories inside plugins and themes folders
+plugins=/workspaces/$dir/plugins
+for p in $plugins/* ; do
+    if [ -d "$p" ]; then
+        chown -R www-data:www-data "$p"
+    fi
+done
+themes=/workspaces/$dir/themes
+for t in $themes/* ; do
+    if [ -d "$t" ]; then
+        chown -R www-data:www-data "$t"
+    fi
+done
+
+echo "Plugins and themes folders have been linked and ownership has been changed."
