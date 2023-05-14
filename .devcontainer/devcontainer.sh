@@ -39,6 +39,7 @@ for p in $plugins ; do
     fi 
     if [ ! -L /var/www/html/wp-content/plugins/$plugin ]; then 
         ln -s $p /var/www/html/wp-content/plugins/$plugin;
+        chown -R www-data:www-data /workspaces/$dir/plugins;
     fi
 done
 themes=/workspaces/$dir/themes/*/
@@ -52,6 +53,7 @@ for t in $themes ; do
     fi 
     if [ ! -L /var/www/html/wp-content/themes/$theme ]; then 
         ln -s $t /var/www/html/wp-content/themes/$theme;
+        chown -R www-data:www-data /workspaces/$dir/themes;
     fi
 done
 find /var/www/html/wp-content/plugins/ -type l ! -exec test -e {} \; -delete
@@ -61,6 +63,5 @@ find /var/www/html/wp-content/themes/ -type l ! -exec test -e {} \; -delete
 
 chown -R www-data:www-data /var/www/html/wp-content/themes
 chown -R www-data:www-data /var/www/html/wp-content/plugins
-chown -R www-data:www-data /workspaces/$dir
 
 echo "Plugins and themes folders have been linked and ownership has been changed."
