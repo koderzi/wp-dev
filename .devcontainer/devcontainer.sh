@@ -27,10 +27,9 @@ if git config user.name >/dev/null 2>&1 && git config user.email >/dev/null 2>&1
 fi
 
 # Enable devtracker execution
-echo $PWD
-chmod +x ./devtracker.sh
+chmod +x $PWD/.devcontainer/devtracker.sh
 
 # Start devtracker if not running
-if ! pgrep -f "devtracker.sh" > /dev/null; then nohup sh -c "exec ./devtracker.sh" > /dev/null 2>&1 & fi
+if ! pgrep -f "devtracker.sh" > /dev/null; then nohup sh -c "exec $PWD/.devcontainer/devtracker.sh" > /dev/null 2>&1 & fi
 
 echo "Dev container have been configured."
