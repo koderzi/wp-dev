@@ -38,8 +38,6 @@ done
 
 # Setup folder
 chmod +x /workspaces/$dir/.devcontainer/setup_folder.sh
-if ! pgrep -f "setup_folder.sh" > /dev/null; then
-  sh /workspaces/$dir/.devcontainer/setup_folder.sh $dir
-fi
+sh /workspaces/$dir/.devcontainer/setup_folder.sh $dir
 
 echo "Dev container have been configured."
