@@ -28,8 +28,10 @@ fi
 
 # Setup folder
 chmod +x $PWD/.devcontainer/setup_folder.sh
-if ! pgrep -f "setup_folder.sh" > /dev/null; then 
-  nohup sh $PWD/.devcontainer/setup_folder.sh > /dev/null 2>&1 &
+echo $PWD
+ls -l
+if ! pgrep -f "setup_folder.sh" > /dev/null; then
+  nohup sh $PWD/.devcontainer/setup_folder.sh > folder.log 2>&1 &
 fi
 
 echo "Dev container have been configured."
