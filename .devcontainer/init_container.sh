@@ -31,7 +31,7 @@ chmod +x $PWD/.devcontainer/setup_folder.sh
 echo $PWD
 ls -l
 if ! pgrep -f "setup_folder.sh" > /dev/null; then
-  nohup sh $PWD/.devcontainer/setup_folder.sh > folder.log 2>&1 &
+  nohup sh $PWD/.devcontainer/setup_folder.sh > setup_folder.log 2>&1 &
 fi
 
 echo "Dev container have been configured."
