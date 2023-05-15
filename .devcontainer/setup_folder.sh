@@ -49,22 +49,12 @@ setup_folder() {
     chown -R www-data:www-data /workspaces/$dir/themes
 }
 
-folder_script
-
-for d in /workspaces/*/ ; do
-    if [ ! -d $d/.devcontainer ]; then
-        continue;
-    fi;
-    if [ -d $d/.devcontainer ]; then
-        dir=$(basename $d);
-        break;
-    fi;
-done
+setup_folder
 
 while true; do
   # Watch for changes in plugins and themes directory
-  while inotifywait -q -e create,delete,move /workspaces/$dir/plugins /workspaces/$dir/themes; do
+  while inotifywait -q -e create,delete,move $PWD/plugins $PWD/themes; do
     # Execute the script
-    folder_script
+    setup_folder
   done
 done
