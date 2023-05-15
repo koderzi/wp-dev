@@ -26,12 +26,20 @@ if git config user.name >/dev/null 2>&1 && git config user.email >/dev/null 2>&1
   echo "Git username and email have been configured."
 fi
 
+for d in /workspaces/*/ ; do
+    if [ ! -d $d/.devcontainer ]; then
+        continue;
+    fi;
+    if [ -d $d/.devcontainer ]; then
+        dir=$(basename $d);
+        break;
+    fi;
+done
+
 # Setup folder
-chmod +x $PWD/.devcontainer/setup_folder.sh
-echo $PWD
-ls -l
+chmod +x /workspaces/$dir/.devcontainer/setup_folder.sh
 if ! pgrep -f "setup_folder.sh" > /dev/null; then
-  nohup sh $PWD/.devcontainer/setup_folder.sh > setup_folder.log 2>&1 &
+  sh /workspaces/$dir/.devcontainer/setup_folder.sh $dir
 fi
 
 echo "Dev container have been configured."
