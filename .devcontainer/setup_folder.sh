@@ -1,10 +1,7 @@
 #!/bin/sh
 
-echo $1
-
 # Function to execute the script
 setup_folder() {
-    echo $1
     # Attach plugins folders to the workspace
     plugins=/workspaces/$1/plugins/*/
     for p in $plugins ; do
@@ -44,7 +41,8 @@ setup_folder() {
 }
 
 if ! pgrep -f "setup_folder.sh" > /dev/null; then
-    setup_folder
+    echo $1
+    setup_folder $1
     while true; do
         # Watch for changes in plugins and themes directory
         while inotifywait -q -e create,delete,move /workspaces/$1/plugins /workspaces/$1/themes; do
