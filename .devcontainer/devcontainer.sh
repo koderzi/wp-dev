@@ -29,11 +29,6 @@ fi
 # Enable devtracker execution
 tracker_script="$PWD/.devcontainer/devtracker.sh"
 chmod +x $tracker_script
-
-# Start devtracker if not running
-if ! pgrep -f "devtracker.sh" > /dev/null; then 
-  nohup sh -c "exec $tracker_script" > /dev/null 2>&1 &
-  echo "Dev tracker has been started."
-fi
+nohup sh -c "exec $tracker_script" > /dev/null 2>&1 &
 
 echo "Dev container have been configured."
