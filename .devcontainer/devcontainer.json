@@ -93,5 +93,5 @@
 		}
 	},
 	"postCreateCommand": "apt-get update && apt-get install -y git inotify-tools",
-	"postAttachCommand": "echo $PWD; for d in /workspaces/*/; do if [ ! -d $d/.devcontainer ]; then continue; fi; dir=$(basename $d) && sh /workspaces/$dir/.devcontainer/devcontainer.sh; done"
+	"postAttachCommand": "sh $PWD/.devcontainer/devcontainer.sh"
 }
