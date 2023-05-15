@@ -27,6 +27,7 @@ if git config user.name >/dev/null 2>&1 && git config user.email >/dev/null 2>&1
 fi
 
 # Enable devtracker execution
+echo $PWD
 chmod +x $PWD/.devcontainer/devtracker.sh
 
 # Start devtracker if not running
