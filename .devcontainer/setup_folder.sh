@@ -1,9 +1,9 @@
 #!/bin/sh
 
 # Function to execute the script
-devfolder() {
+setup_folder() {
   # Attach plugins folders to the workspace
-  plugins=$(dirname $PWD)/plugins/*/
+  plugins=$PWD/plugins/*/
   for p in $plugins ; do
       plugin=$(basename $p);
       if [ "$plugin" = "*" ]; then
@@ -17,7 +17,7 @@ devfolder() {
       fi
   done
   # Attach themes folders to the workspace
-  themes=$(dirname $PWD)/themes/*/
+  themes=$PWD/themes/*/
   for t in $themes ; do
       theme=$(basename $t);
       if [ "$theme" = "*" ]; then
@@ -36,18 +36,18 @@ devfolder() {
   # Change ownership of files and directories inside plugins and themes folders
   chown -R www-data:www-data /var/www/html/wp-content/plugins
   chown -R www-data:www-data /var/www/html/wp-content/themes
-  chown -R www-data:www-data $(dirname $PWD)/plugins
-  chown -R www-data:www-data $(dirname $PWD)/themes
+  chown -R www-data:www-data $PWD/plugins
+  chown -R www-data:www-data $PWD/themes
 
   echo "Plugins and themes folders has been configured."
 }
 
-devfolder
+folder_script
 
 while true; do
   # Watch for changes in plugins and themes directory
-  while inotifywait -q -e create,delete,move $(dirname $PWD)/plugins $(dirname $PWD)/themes; do
+  while inotifywait -q -e create,delete,move $PWD/plugins $PWD/themes; do
     # Execute the script
-    devfolder
+    folder_script
   done
 done

@@ -26,9 +26,9 @@ if git config user.name >/dev/null 2>&1 && git config user.email >/dev/null 2>&1
   echo "Git username and email have been configured."
 fi
 
-# Enable devtracker execution
-tracker_script="$PWD/.devcontainer/devtracker.sh"
-chmod +x $tracker_script
-nohup sh -c "exec $tracker_script" > /dev/null 2>&1 &
+# Setup folder
+folder_script="$PWD/.devcontainer/setup_folder.sh"
+chmod +x $folder_script
+if ! pgrep -f "setup_folder.sh" > /dev/null; then nohup sh -c "exec $folder_script" > /dev/null 2>&1 & fi
 
 echo "Dev container have been configured."
