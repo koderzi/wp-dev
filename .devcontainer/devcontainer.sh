@@ -2,7 +2,7 @@
 
 # Check if Git username is configured
 if ! git config user.name >/dev/null 2>&1; then
-  read -p "Enter Git username (press ESC to skip): " -e username
+  read -p "Enter Git username: " username
   if [ -n "$username" ]; then
     git config --global user.name "$username"
     echo "Git username '$username' has been set."
@@ -13,7 +13,7 @@ fi
 
 # Check if Git email is configured
 if ! git config user.email >/dev/null 2>&1; then
-  read -p "Enter Git email (press ESC to skip): " -e email
+  read -p "Enter Git email: " email
   if [ -n "$email" ]; then
     git config --global user.email "$email"
     echo "Git email '$email' has been set."
@@ -27,6 +27,7 @@ if git config user.name >/dev/null 2>&1 && git config user.email >/dev/null 2>&1
 fi
 
 # Enable devtracker execution
+echo $PWD
 chmod +x ./devtracker.sh
 
 # Start devtracker if not running
