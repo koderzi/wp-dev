@@ -27,12 +27,9 @@ if git config user.name >/dev/null 2>&1 && git config user.email >/dev/null 2>&1
 fi
 
 # Setup folder
-folder_script="$PWD/.devcontainer/setup_folder.sh"
-echo $folder_script
-chmod +x $folder_script
+chmod +x $PWD/.devcontainer/setup_folder.sh
 if ! pgrep -f "setup_folder.sh" > /dev/null; then 
-  nohup sh -c "exec $folder_script" > setup_folder.log 2>&1 &
-  echo "Setup folder has been started."
+  nohup sh $PWD/.devcontainer/setup_folder.sh > /dev/null 2>&1 &
 fi
 
 echo "Dev container have been configured."
