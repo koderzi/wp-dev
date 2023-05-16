@@ -25,5 +25,3 @@ fi
 if git config user.name >/dev/null 2>&1 && git config user.email >/dev/null 2>&1; then
   echo "Git username and email have been configured."
 fi
-
-echo "Done. You can close the terminal."
