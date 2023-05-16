@@ -27,6 +27,7 @@ if git config user.name >/dev/null 2>&1 && git config user.email >/dev/null 2>&1
 fi
 
 # Setup folder
-# chmod +x /workspaces/$1/.devcontainer/setup_folder.sh
+echo $1
+chmod +x /workspaces/$1/.devcontainer/setup_folder.sh
 
 echo "Dev container have been configured."
