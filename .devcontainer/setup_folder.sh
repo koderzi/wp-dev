@@ -40,6 +40,8 @@ setup_folder() {
     chown -R www-data:www-data /workspaces/$1/themes
 }
 
+setup_folder $1
+
 # setup_folder $1
 while true; do
     # Watch for changes in plugins and themes directory
