@@ -93,5 +93,5 @@
 		}
 	},
 	"postCreateCommand": "apt-get update && apt-get install -y git inotify-tools",
-	"postAttachCommand": "initContainer=true;for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; if [ -d $d/.devcontainer ]; then dir=$(basename $d); break; fi; done && sh /workspaces/$dir/.devcontainer/init_container.sh $dir && nohup sh /workspaces/$1/.devcontainer/setup_folder.sh $1 >/dev/null 2>&1"
+	"postAttachCommand": "initContainer=true;for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; if [ -d $d/.devcontainer ]; then dir=$(basename $d); break; fi; done && sh /workspaces/$dir/.devcontainer/init_container.sh && nohup sh /workspaces/$dir/.devcontainer/setup_folder.sh $dir >/dev/null 2>&1"
 }
