@@ -42,7 +42,11 @@ setup_folder() {
 
 setup_folder $1
 
-pkill -9 -f initContainer=true
+setup_folder_id=pgrep -f setup_folder.sh
+
+for pid in $setup_folder_id ; do
+    disown -r -h $pid
+done
 
 # setup_folder $1
 while true; do
