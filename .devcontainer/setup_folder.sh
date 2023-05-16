@@ -42,11 +42,7 @@ setup_folder() {
 
 setup_folder $1
 
-setup_folder_id=pgrep -f setup_folder.sh
-
-for pid in $setup_folder_id ; do
-    disown -r -h $pid
-done
+disown -r -h $$
 
 # setup_folder $1
 while true; do
