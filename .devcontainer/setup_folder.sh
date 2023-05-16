@@ -42,12 +42,12 @@ setup_folder() {
 
 if ! pgrep -f "setup_folder.sh" > /dev/null; then
     echo $1
-    setup_folder $1
+    # setup_folder $1
     while true; do
         # Watch for changes in plugins and themes directory
-        while inotifywait -q -e create,delete,move /workspaces/$1/plugins /workspaces/$1/themes; do
-            # Execute the script
-            setup_folder $1
-        done
+        # while inotifywait -q -e create,delete,move /workspaces/$1/plugins /workspaces/$1/themes; do
+        #     # Execute the script
+        #     setup_folder $1
+        # done
     done
 fi

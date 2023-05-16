@@ -39,7 +39,7 @@ done
 echo $dir
 
 # Setup folder
-# chmod +x /workspaces/$dir/.devcontainer/setup_folder.sh
-# sh /workspaces/$dir/.devcontainer/setup_folder.sh $dir > setup.log 2>&1 &
+chmod +x /workspaces/$dir/.devcontainer/setup_folder.sh
+sh /workspaces/$dir/.devcontainer/setup_folder.sh $dir > setup.log 2>&1 &
 
 echo "Dev container have been configured."
