@@ -42,9 +42,6 @@ setup_folder() {
 
 setup_folder $1
 
-disown -r -h $$
-
-# setup_folder $1
 while true; do
     # Watch for changes in plugins and themes directory
     while inotifywait -q -e create,delete,move /workspaces/$1/plugins /workspaces/$1/themes; do
