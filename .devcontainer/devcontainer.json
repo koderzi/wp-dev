@@ -92,6 +92,5 @@
 			]
 		}
 	},
-	"postCreateCommand": "apt-get update && apt-get install -y git inotify-tools",
-	"postAttachCommand": "sh $PWD/.devcontainer/init_container.sh"
+	"postCreateCommand": "apt-get update && apt-get install -y git inotify-tools"
 }
