@@ -42,6 +42,8 @@ setup_folder() {
 
 setup_folder $1
 
+pkill -9 -f initContainer=true
+
 # setup_folder $1
 while true; do
     # Watch for changes in plugins and themes directory

@@ -27,6 +27,3 @@ if git config user.name >/dev/null 2>&1 && git config user.email >/dev/null 2>&1
 fi
 
 echo "Done. You can close the terminal."
-
-nohup sh /workspaces/$1/.devcontainer/setup_folder.sh $1 >/dev/null 2>&1
-disown -r
