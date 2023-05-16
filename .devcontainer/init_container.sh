@@ -26,4 +26,4 @@ if git config user.name >/dev/null 2>&1 && git config user.email >/dev/null 2>&1
   echo "Git username and email have been configured."
 fi
 
-echo "Dev container have been configured."
+echo "Done. You can close the terminal."
