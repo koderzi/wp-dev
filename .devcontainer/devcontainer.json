@@ -92,6 +92,6 @@
 			]
 		}
 	},
-	"postCreateCommand": "apt-get update && apt-get install -y git inotify-tools",
-	"postAttachCommand": "echo $PWD"
+	"postCreateCommand": "apt-get update && apt-get install -y git inotify-tools cron",
+	"postAttachCommand": "crontab -l"
 }
