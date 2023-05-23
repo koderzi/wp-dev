@@ -1,12 +1,9 @@
 #!/bin/sh
 
-# create a new text file and write $1 variable to it
-echo $1 > /workspaces/text.txt
-
 # Function to execute the script
 setup_folder() {
     # Attach plugins folders to the workspace
-    plugins=/workspaces/$1/plugins/*/
+    plugins=$(dirname "$PWD")/plugins/*/
     for p in $plugins ; do
         plugin=$(basename $p);
         if [ "$plugin" = "*" ]; then
@@ -20,7 +17,7 @@ setup_folder() {
         fi
     done
     # Attach themes folders to the workspace
-    themes=/workspaces/$1/themes/*/
+    themes=$wp_folder/themes/*/
     for t in $themes ; do
         theme=$(basename $t);
         if [ "$theme" = "*" ]; then
@@ -39,11 +36,11 @@ setup_folder() {
     # Change ownership of files and directories inside plugins and themes folders
     chown -R www-data:www-data /var/www/html/wp-content/plugins
     chown -R www-data:www-data /var/www/html/wp-content/themes
-    chown -R www-data:www-data /workspaces/$1/plugins
-    chown -R www-data:www-data /workspaces/$1/themes
+    chown -R www-data:www-data $(dirname "$PWD")/plugins
+    chown -R www-data:www-data $(dirname "$PWD")/themes
 }
 
-setup_folder $1
+setup_folder
 
 while true; do
     # Watch for changes in plugins and themes directory
