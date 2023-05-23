@@ -4,6 +4,6 @@
 future=$(date -d '+ 5 seconds' '+%M %H %d %m %u')
 
 # Set the cronjob to run a command at the future time
-crontab "$future $PWD/.devcontainer/setup_folder.sh"
+crontab "$future sh $PWD/.devcontainer/setup_folder.sh"
 
 sh "$PWD"/.devcontainer/setup_git.sh
