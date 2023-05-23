@@ -93,5 +93,5 @@
 		}
 	},
 	"postCreateCommand": "apt-get update && apt-get install -y git inotify-tools cron",
-	"postAttachCommand": "crontab -l"
+	"postAttachCommand": "sh $PWD/.devcontainer/setup_container.sh"
 }

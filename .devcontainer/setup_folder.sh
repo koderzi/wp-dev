@@ -42,13 +42,12 @@ setup_workspace() {
 
 setup_workspace
 
-# is $1 variable is set to 'cron' run the setup_workspace while loop
+# If $1 is set to 'cron', watch for changes in plugins and themes directory
 if [ "$1" = "cron" ]; then
-    # Watch for changes in plugins and themes directory
-    while true; do
-        WP_DIR=$(dirname $(dirname "$(readlink -f "$0")"))
-        inotifywait -q -e create,delete,move $WP_DIR/plugins $WP_DIR/themes
-        # Execute the script
-        setup_workspace
-    done
+  # watch for changes in both plugins and themes directory
+  while true; do
+    WP_DIR=$(dirname "$(dirname "$(readlink -f "$0")")")
+    inotifywait -q -e create,delete,move "$WP_DIR/plugins" "$WP_DIR/themes"
+    setup_workspace
+  done
 fi
