@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # create a new text file and write $1 variable to it
-echo $1 > /workspaces/$1/text.txt
+echo $1 > /workspaces/text.txt
 
 # Function to execute the script
 setup_folder() {
