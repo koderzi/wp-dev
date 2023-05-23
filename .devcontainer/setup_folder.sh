@@ -44,8 +44,8 @@ setup_folder
 
 while true; do
     # Watch for changes in plugins and themes directory
-    while inotifywait -q -e create,delete,move /workspaces/$1/plugins /workspaces/$1/themes; do
+    while inotifywait -q -e create,delete,move $(dirname "$PWD")/plugins $(dirname "$PWD")/themes; do
         # Execute the script
-        setup_folder $1
+        setup_folder
     done
 done
