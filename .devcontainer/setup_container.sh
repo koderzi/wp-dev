@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEV_DIR=$(dirname "$(dirname "$(readlink -f "$0")")")
+DEV_DIR="$(dirname "$(readlink -f "$0")")"
 
 SETUPFOLDER="$DEV_DIR"/.devcontainer/setup_folder.sh
 crontab "* * * * * sh $SETUPFOLDER"
