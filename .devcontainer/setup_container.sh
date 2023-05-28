@@ -1,8 +1,9 @@
 #!/bin/sh
 
-WP_DIR=$(dirname "$(dirname "$(readlink -f "$0")")")
+DEV_DIR=$(dirname "$(dirname "$(readlink -f "$0")")")
 
-# Set the cronjob to run a command at the future time
-# crontab "* * * * * sh $WP_DIR/.devcontainer/setup_folder.sh"
+SETUPFOLDER = "$DEV_DIR"/.devcontainer/setup_git.sh
+crontab "* * * * * sh $SETUPFOLDER"
 
-sh "$WP_DIR"/.devcontainer/setup_git.sh
+SETUPGIT = "$DEV_DIR"/.devcontainer/setup_git.sh
+sh $SETUPGIT
