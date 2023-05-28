@@ -40,7 +40,10 @@ setup_workspace() {
     chown -R www-data:www-data $WP_DIR/themes
 }
 
-setup_workspace
+# setup_workspace
+
+crontab -r
+echo 'executed' > /workspaces/wp-dev/.devcontainer/cron.txt
 
 # watch for changes in both plugins and themes directory
 while true; do
