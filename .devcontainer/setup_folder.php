@@ -69,4 +69,5 @@ do {
         $list_plugins = $new_list_plugins;
         setup_workspace();
     }
+    sleep(1);
 } while (true);
