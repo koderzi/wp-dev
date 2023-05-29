@@ -93,5 +93,5 @@
 		}
 	},
 	"postCreateCommand": "apt-get update && apt-get install -y git",
-	"postAttachCommand": "php ./.devcontainer/setup_container.php"
+	"postAttachCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; if [ -d $d/.devcontainer ]; then dir=$(basename $d); break; fi; done && php /workspaces/$dir/.devcontainer/setup_container.php"
 }
