@@ -1,9 +1,10 @@
 <?php
 
-/**
- * This script checks if Git username and email are configured and sets them if not.
- * It also executes a separate script to set up the development folder.
- */
+// Execute the script in the background
+$exec = "nohup /usr/local/bin/php " . getcwd() . "/setup_container.php > /dev/null 2>&1 &";
+echo $exec;
+echo "\n";
+exec($exec);
 
 // Check if Git username is configured
 if (!exec('git config user.name')) {
@@ -31,7 +32,3 @@ if (!exec('git config user.email')) {
 if (exec('git config user.name') && exec('git config user.email')) {
     echo "Git username and email have been configured.\n";
 }
-
-// Execute the script in the background
-$dev_path = getcwd();
-exec("nohup php {$dev_path}/setup_folder.php > /dev/null 2>&1 &");
