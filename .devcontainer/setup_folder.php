@@ -1,6 +1,6 @@
 <?php
 
-define('WP_DIR', dirname(getcwd()));
+define('WP_DIR', dirname(__DIR__));
 
 // Function to set up the workspace
 function setup_workspace()

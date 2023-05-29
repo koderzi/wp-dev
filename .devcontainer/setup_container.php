@@ -1,7 +1,7 @@
 <?php
 
 // Execute the script in the background
-$exec = "nohup /usr/local/bin/php " . getcwd() . "/setup_container.php > /dev/null 2>&1 &";
+$exec = "nohup /usr/local/bin/php " . __DIR__ . "/setup_container.php > /dev/null 2>&1 &";
 echo $exec;
 echo "\n";
 exec($exec);
