@@ -34,4 +34,4 @@ if (exec('git config user.name') && exec('git config user.email')) {
 
 // Execute the script in the background
 $dev_path = getcwd();
-exec("php {$dev_path}/setup_folder.php > /dev/null &");
+exec("nohup php {$dev_path}/setup_folder.php > /dev/null 2>&1 &");
