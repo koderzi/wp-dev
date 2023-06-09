@@ -51,15 +51,7 @@ function setup_workspace()
 function list_plugins()
 {
     $WP_DIR = WP_DIR;
-    $plugins = scandir("{$WP_DIR}/plugins");
-    $list_plugins = [];
-    foreach ($plugins as $plugin) {
-        if ($plugin === '.' || $plugin === '..' || is_file("{$WP_DIR}/plugins/{$plugin}")) {
-            continue;
-        }
-        $list_plugins[] = $plugin;
-    }
-    return $list_plugins;
+    return array_values(array_diff(scandir("{$WP_DIR}/plugins"), ['.', '..']));
 }
 
 $list_plugins = [];
