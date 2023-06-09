@@ -88,7 +88,8 @@
 			"extensions": [
 				"eamodio.gitlens",
 				"wordpresstoolbox.wordpress-toolbox",
-				"bmewburn.vscode-intelephense-client"
+				"bmewburn.vscode-intelephense-client",
+				"MichaelCurrin.auto-commit-msg"
 			]
 		}
 	},
