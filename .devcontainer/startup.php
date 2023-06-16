@@ -1,7 +1,8 @@
 <?php
 
 if ($argv[1] == 'install') {
-    include_once(__DIR__ . "/container/install.php");
+    $exec = __DIR__ . "/container/install.sh";
+    exec($exec);
 }
 
 if ($argv[1] == 'setup') {
