@@ -86,6 +86,7 @@
 				]
 			},
 			"extensions": [
+				"xdebug.php-debug",
 				"eamodio.gitlens",
 				"wordpresstoolbox.wordpress-toolbox",
 				"bmewburn.vscode-intelephense-client",
