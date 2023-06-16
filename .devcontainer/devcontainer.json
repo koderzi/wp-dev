@@ -95,6 +95,6 @@
 			]
 		}
 	},
-	"postCreateCommand": "apt-get update && apt-get install -y git; pecl install xdebug",
+	"postCreateCommand": "apt-get update && apt-get install -y git; pecl install xdebug && apache2ctl restart && code -reload",
 	"postAttachCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; if [ -d $d/.devcontainer ]; then dir=$(basename $d); break; fi; done && php /workspaces/$dir/.devcontainer/init-container.php"
 }
