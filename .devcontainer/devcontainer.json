@@ -8,6 +8,7 @@
 		"vscode": {
 			"settings": {
 				"php.validate.executablePath": "/usr/local/bin/php",
+				"php.debug.executablePath": "/usr/local/bin/php",
 				"git.ignoreMissingGitWarning": true,
 				"intelephense.stubs": [
 					"apache",
