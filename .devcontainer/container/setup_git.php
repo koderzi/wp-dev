@@ -1,9 +1,5 @@
 <?php
 
-// Execute the script in the background
-$exec = "nohup /usr/local/bin/php " . __DIR__ . "/setup_folder.php > /dev/null 2>&1 &";
-exec($exec);
-
 // Check if Git username is configured
 if (!exec('git config user.name')) {
     $username = readline("Enter Git username: ");

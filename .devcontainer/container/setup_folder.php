@@ -1,6 +1,6 @@
 <?php
 
-define('WP_DIR', dirname(__DIR__));
+define('WP_DIR', dirname(__DIR__, 2));
 
 class wpDev
 {
