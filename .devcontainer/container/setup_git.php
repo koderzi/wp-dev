@@ -1,5 +1,5 @@
 <?php
-echo "\n";
+
 // Check if Git username is configured
 if (!exec('git config user.name')) {
     $username = readline("Enter Git username: ");
@@ -24,9 +24,5 @@ if (!exec('git config user.email')) {
 
 // Check if Git username and email have been configured
 if (strlen(exec('git config user.name')) > 0 && strlen(exec('git config user.email')) > 0) {
-    echo "Git username and email configured.\n";
-}
-
-if (file_exists('/xdebug.bak')) {
-    echo "\n";
+    echo "Git configured.\n";
 }
