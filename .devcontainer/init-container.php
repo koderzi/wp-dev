@@ -7,7 +7,7 @@ if ($argv[1] == 'install') {
 if ($argv[1] == 'setup') {
     $exec = "nohup /usr/local/bin/php " . __DIR__ . "/container/setup_folder.php > /dev/null 2>&1 &";
     exec($exec);
-    echo("Folder setup completed.");
+    echo ("Wordpress plugins & themes folder configured.\n");
     include_once(__DIR__ . "/container/setup_git.php");
     include_once(__DIR__ . "/container/setup_xdebug.php");
 }

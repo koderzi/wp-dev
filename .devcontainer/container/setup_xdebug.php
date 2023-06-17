@@ -1,10 +1,19 @@
 <?php
 
-$phpversion = shell_exec('php -v');
+$xdebugIniPath = '/usr/local/etc/php/conf.d/xdebug.ini';
 
-if (strpos($phpversion, 'Xdebug') !== false) {
+if (!file_exists($xdebugIniPath)) {
+    echo "Xdebug is not installed.\n";
     return;
 }
 
-echo "Restarting system to activate xdebug\n";
+$phpVersion = shell_exec('php -v');
+
+if (strpos($phpVersion, 'Xdebug') !== false) {
+    return;
+}
+
+echo "Restarting Apache to activate Xdebug...\n";
+echo "Press 'Reload Windows' when prompted.\n";
+
 exec("nohup apache2ctl -k restart > /dev/null 2>&1 &");
