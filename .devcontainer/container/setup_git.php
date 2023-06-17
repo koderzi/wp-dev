@@ -1,5 +1,5 @@
 <?php
-
+echo "\n";
 // Check if Git username is configured
 if (!exec('git config user.name')) {
     $username = readline("Enter Git username: ");
