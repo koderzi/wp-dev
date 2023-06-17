@@ -26,4 +26,3 @@ if (preg_match('/zend_extension=([^"]+)/', $xdebug, $matches)) {
     exit(1);
 }
 echo "Installation complete.\n";
-exec("apache2ctl -k restart 2>/dev/null || true");
