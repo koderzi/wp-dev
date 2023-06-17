@@ -19,7 +19,7 @@ if ($xdebugCode !== 0) {
 }
 if (preg_match('/zend_extension=([^"]+)/', $xdebug, $matches)) {
     $zend_extension = $matches[0];
-    exec("echo '$zend_extension' > /usr/local/etc/php/conf.d/xdebug.ini");
+    exec("echo '$zend_extension\nxdebug.mode = debug\nxdebug.start_with_request = yes' > /usr/local/etc/php/conf.d/xdebug.ini");
 } else {
     echo "Could not find xdebug zend_extension path.\n\n";
     exit(1);
