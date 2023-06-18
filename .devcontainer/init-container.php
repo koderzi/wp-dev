@@ -24,7 +24,7 @@ if ($argv[1] == 'setup') {
             'koderzi',
             'wp-dev',
             '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',
-            '1.0.0',
+            '1.0.1',
             '',
             '',
             [
