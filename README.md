@@ -1,4 +1,4 @@
-# wp-dev - Dockerized WordPress Development Environment
+# wp-dev - Dockerized WordPress Development Environment (Auto-Update)
 
 ## Introduction
 
@@ -42,4 +42,14 @@ To include a plugin or theme from other repositories, follow the steps below:
    - Theme: /workspaces/your_duplicated_repo/themes
 5. Then click open to open the cloned repository to start developing.
 
-> Note: This repository is intended for development purposes only. Do not use it in production environments.
+## How to disable auto-update
+
+To disable auto update, change the `AUTO_UPDATE` value to false in `init-container.php` file at line 3 as follows:
+
+```
+   define('AUTO_UPDATE', false);
+```
+
+This will prevent automatic updates from occurring.
+
+> Note: Please note that this GitHub template is set up for auto-update, which means that any updates made to the original template repository will be reflected in your duplicated repository automatically. This repository is intended for development purposes only. Do not use it in production environments.
