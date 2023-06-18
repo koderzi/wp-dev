@@ -54,7 +54,9 @@ To include a plugin or theme from other repositories, follow the steps below:
 
 ## Auto-update
 
-Auto-updates are enabled by default and applied to all files in the `.devcontainer` folder except for `docker-compose.yaml` and `devcontainer.json`. This makes it easy to stay up-to-date with the latest changes and improvements. 
+Auto-updates are enabled by default and applied to all files in the `.devcontainer` folder except for `docker-compose.yaml` and `devcontainer.json`. This makes it easy to stay up-to-date with the latest changes and improvements.
+
+Auto-update is not executed the first time a dev container is loaded, but it will run every time after that to apply the latest changes to relevant files in the .devcontainer folder. This allows users to review changes before they are applied or to disable auto-update for more control.
 
 To disable auto update, change the `AUTO_UPDATE` value to false in `init-container.php` file at line 3 as follows:
 
