@@ -42,7 +42,9 @@ To include a plugin or theme from other repositories, follow the steps below:
    - Theme: /workspaces/your_duplicated_repo/themes
 5. Then click open to open the cloned repository to start developing.
 
-## How to disable auto-update
+## How auto-update
+
+The auto-updates are enabled in this environment, and all updates are applied within the .devcontainer folder.
 
 To disable auto update, change the `AUTO_UPDATE` value to false in `init-container.php` file at line 3 as follows:
 

@@ -18,6 +18,8 @@ if ($argv[1] == 'setup') {
     include_once(__DIR__ . "/container/setup_xdebug.php");
 
     if (AUTO_UPDATE) {
+        $cwd = getcwd();
+        chdir(__DIR__);
         new Updater(
             'koderzi',
             'wp-dev',
@@ -32,5 +34,6 @@ if ($argv[1] == 'setup') {
                 ]
             ]
         );
+        chdir($cwd);
     }
 }
