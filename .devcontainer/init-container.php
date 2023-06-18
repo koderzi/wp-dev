@@ -35,5 +35,7 @@ if ($argv[1] == 'setup') {
             ]
         );
         chdir($cwd);
+        echo "container updated.\n";
     }
+    echo "\n";
 }

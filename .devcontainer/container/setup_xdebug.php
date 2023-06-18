@@ -5,14 +5,14 @@ if (!file_exists('/usr/local/etc/php/conf.d/xdebug.ini')) {
     exit(1);
 }
 
-echo "xdebug configured.\n\n";
+echo "xdebug configured.\n";
 
 if (file_exists('/xdebug.bak')) {
     exec('echo "activated" > /xdebug.bak');
     return;
 }
 
-echo "Activating git and xdebug...\n\n";
+echo "\nActivating git and xdebug...\n";
 echo "\033[1mPress 'Reload Window' when prompted.\033[0m\n";
 
 exec("nohup apache2ctl -k restart > /dev/null 2>&1 &");
