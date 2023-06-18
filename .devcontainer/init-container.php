@@ -17,13 +17,13 @@ if ($argv[1] == 'setup') {
     include_once(__DIR__ . "/container/setup_git.php");
     include_once(__DIR__ . "/container/setup_xdebug.php");
 
-    if (file_exists('/xdebug.bak') && AUTO_UPDATE) {
+    if (file_exists('/xdebug.bak') && file_get_contents('/xdebug.bak') == 'activated' && AUTO_UPDATE) {
         $cwd = getcwd();
         chdir(__DIR__);
         new Updater(
             'koderzi',
             'wp-dev',
-            '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',
+            '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',
             '1.0.1',
             '',
             '',
