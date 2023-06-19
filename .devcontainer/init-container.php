@@ -36,9 +36,12 @@ function update()
         '',
         '',
         [
+            'path' => [
+                "$cwd/plugins",
+                "$cwd/themes",
+            ],
             'file' => [
-                'docker-compose.yaml',
-                'devcontainer.json'
+                "devcontainer.json"
             ]
         ]
     );
