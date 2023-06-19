@@ -24,5 +24,5 @@ if (!exec('git config user.email')) {
 
 // Check if Git username and email have been configured
 if (strlen(exec('git config user.name')) > 0 && strlen(exec('git config user.email')) > 0) {
-    echo "git configured.\n";
+    echo "Configured git.\n";
 }

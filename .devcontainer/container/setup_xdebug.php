@@ -1,11 +1,11 @@
 <?php
 
 if (!file_exists('/usr/local/etc/php/conf.d/xdebug.ini')) {
-    echo "xdebug is not configured properly.\n\n";
+    echo "Could not configure xdebug.\n\n";
     exit(1);
 }
 
-echo "xdebug configured.\n";
+echo "Configured xdebug.\n";
 
 if (file_exists('/xdebug.bak')) {
     exec('echo "" > /xdebug.bak');
