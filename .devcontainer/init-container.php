@@ -37,8 +37,9 @@ function update()
         '',
         [
             'path' => [
+                "$cwd/configuration",
                 "$cwd/plugins",
-                "$cwd/themes",
+                "$cwd/themes"
             ],
             'file' => [
                 "devcontainer.json"
