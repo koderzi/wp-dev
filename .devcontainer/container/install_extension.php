@@ -24,3 +24,4 @@ if (preg_match('/zend_extension=([^"]+)/', $xdebug, $matches)) {
     echo "\nCould not find xdebug zend_extension path.\n\n";
     exit(1);
 }
+echo "\n";
