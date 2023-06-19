@@ -1,7 +1,7 @@
 <?php
 
 if (!file_exists('/usr/local/etc/php/conf.d/xdebug.ini')) {
-    echo "Could not configure xdebug.\n\n";
+    echo "\nCould not configure xdebug.\n\n";
     exit(1);
 }
 
