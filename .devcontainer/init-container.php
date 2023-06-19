@@ -8,10 +8,10 @@ use KoderZi\PhpGitHubUpdater\Updater;
 
 if ($argv[1] == 'install') {
     include_once(__DIR__ . "/container/install_extension.php");
-    update();
-    echo "\n\033[1mActivating container update...\033[0m\n";
-    echo "\033[1mPress 'Reload Window' when prompted.\033[0m\n";
-    exec("nohup apache2ctl -k restart > /dev/null 2>&1 &");
+    // update();
+    // echo "\n\033[1mActivating container update...\033[0m\n";
+    // echo "\033[1mPress 'Reload Window' when prompted.\033[0m\n";
+    // exec("nohup apache2ctl -k restart > /dev/null 2>&1 &");
 }
 
 if ($argv[1] == 'setup') {
@@ -22,7 +22,7 @@ if ($argv[1] == 'setup') {
         include_once(__DIR__ . "/container/setup_git.php");
         include_once(__DIR__ . "/container/setup_xdebug.php");
         if (file_exists('/xdebug.bak') && strlen(file_get_contents('/xdebug.bak')) > 1  && AUTO_UPDATE) {
-            update();
+            // update();
         }
         echo "\n";
     }
