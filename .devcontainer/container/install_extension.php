@@ -1,5 +1,5 @@
 <?php
-echo "\nUpdating apt-get...\n";
+echo "\nUpdating apt-get...\n\n";
 $aptget = exec("apt-get update 2>&1", $aptgetArray, $aptgetCode);
 if ($aptgetCode !== 0) {
     echo "Error updating apt-get: $aptget\n\n";
@@ -24,4 +24,4 @@ if (preg_match('/zend_extension=([^"]+)/', $xdebug, $matches)) {
     echo "Could not find xdebug zend_extension path.\n\n";
     exit(1);
 }
-echo "Installation complete.\n\n";
+echo "\nInstallation complete.\n\n";

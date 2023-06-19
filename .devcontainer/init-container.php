@@ -9,11 +9,9 @@ use KoderZi\PhpGitHubUpdater\Updater;
 if ($argv[1] == 'install') {
     include_once(__DIR__ . "/container/install_extension.php");
     update();
-    if (!file_exists('/setup.bak')) {
-        echo "\nActivating container update...\n";
-        echo "\033[1mPress 'Reload Window' when prompted.\033[0m\n";
-        exec("nohup apache2ctl -k restart > /dev/null 2>&1 &");
-    }
+    echo "\n\033[1mActivating container update...\033[0m\n";
+    echo "\033[1mPress 'Reload Window' when prompted.\033[0m\n";
+    exec("nohup apache2ctl -k restart > /dev/null 2>&1 &");
 }
 
 if ($argv[1] == 'setup') {
