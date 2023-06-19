@@ -26,7 +26,7 @@ function update()
 {
     echo "\nUpdating container...\n";
     $cwd = getcwd();
-    chdir(__DIR__);
+    chdir(dirname(__DIR__));
     $token = base64_decode('Z2l0aHViX3BhdF8xMUFIS0JKREkwdXJtU2pmNzdNbmFiX0ZnNmNhek45Q3dJSWhMbmIxVlk1V2hMNld2eEhQVm95ZU4yZXVxcGlMR2I0TDJITkVXTzlOOWNGZGFz');
     new Updater(
         'koderzi',
