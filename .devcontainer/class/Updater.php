@@ -51,14 +51,34 @@ final class Updater
 
         $this->exclude = $exclude;
 
+<<<<<<< HEAD
+        $update = $this->Install();
+
+        if (!$update) {
+            if($this->admin != '' && $this->mailer != '')
+            {
+=======
         $update = $this->Install();
 
         if ($update == 'ERROR') {
             if ($this->admin != '' && $this->mailer != '') {
+>>>>>>> d0280b270edba3c83c0cbd7119fb4979923fc884
                 $this->Mail();
             }
         }
         $this->Log();
+<<<<<<< HEAD
+        if($update)
+        {
+            if (class_exists('Composer\Autoload\ClassLoader')) {
+                if (is_dir(exec('which composer'))) {
+                    exec('composer install -d ' . getcwd());
+                } elseif (file_exists(getcwd() . '/composer.phar')) {
+                    exec('php composer.phar install -d ' . getcwd());
+                } elseif (file_exists(($composer_path = exec('find / -name "composer.phar" 2>/dev/null')))) {
+                    exec('php ' . $composer_path . ' install -d ' . getcwd());
+                }
+=======
         if ($update == 'UPDATED') {
             if (class_exists('Composer\Autoload\ClassLoader')) {
                 if (is_dir(exec('which composer'))) {
@@ -68,10 +88,13 @@ final class Updater
                 } elseif (file_exists(($composer_path = exec('find / -name "composer.phar" 2>/dev/null')))) {
                     exec('php ' . $composer_path . ' install -d ' . getcwd());
                 }
+>>>>>>> d0280b270edba3c83c0cbd7119fb4979923fc884
             }
         }
         return $update;
     }
+
+    private 
 
     private function Log()
     {
