@@ -2,7 +2,7 @@
 
 define('AUTO_UPDATE', true);
 
-include_once(__DIR__ . "/update/Updater.php");
+include_once(__DIR__ . "/class/Updater.php");
 
 use KoderZi\PhpGitHubUpdater\Updater;
 
