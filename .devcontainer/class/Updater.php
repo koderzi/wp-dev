@@ -51,16 +51,17 @@ final class Updater
 
         $this->exclude = $exclude;
 
-
         $update = $this->Install();
 
         if ($update == 'ERROR') {
-            if ($this->admin != '' && $this->mailer != '') {
+            if($this->admin != '' && $this->mailer != '')
+            {
                 $this->Mail();
             }
         }
         $this->Log();
-        if ($update == 'UPDATED') {
+        if($update == 'UPDATED')
+        {
             if (class_exists('Composer\Autoload\ClassLoader')) {
                 if (is_dir(exec('which composer'))) {
                     exec('composer install -d ' . getcwd());
@@ -73,8 +74,6 @@ final class Updater
         }
         return $update;
     }
-
-    private 
 
     private function Log()
     {
@@ -292,7 +291,7 @@ final class Updater
                 $this->log[] = [date("Y-m-d H:i:s"), "Curl return $status."];
                 return false;
             };
-            if (!file_exists($download_file)) {
+            if (!file_exists($download_file)) {       
                 $this->log[] = [date("Y-m-d H:i:s"), "Failed to download zip file. $download_file"];
                 return false;
             }
@@ -334,7 +333,7 @@ final class Updater
     private function Upgrade()
     {
         sleep(10);
-
+        
         $app_exclude = [];
         $app_exclude['path'] = [$this->dir . '/.git', $this->dir . '/update', $this->dir . '/update.lock', $this->dir . '/vendor', $this->dir . '/composer.phar'];
         $app_exclude['path'] = array_merge($app_exclude['path'], $this->exclude['path']);
