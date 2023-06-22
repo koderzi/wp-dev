@@ -14,5 +14,5 @@ if (file_exists('/xdebug.bak')) {
 
 echo "\n\033[1mActivating git and xdebug...\033[0m\n\n\033[1mPress 'Reload Window' when prompted.\033[0m\n";
 
-exec("nohup restart > /dev/null 2>&1 &");
+exec("nohup service apache2 restart > /dev/null 2>&1 &");
 exec('echo "activating" > /xdebug.bak');
