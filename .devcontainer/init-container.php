@@ -47,7 +47,7 @@ function update()
         ]
     );
     chdir($cwd);
-    if ($update->status() == Updater::LATEST) {
+    if ($update->status() == Updater::UPDATED) {
         echo "\nContainer updated.\n\n\033[1mPress 'Reload Window' when prompted.\033[0m\n";
         exec("nohup service apache2 restart > /dev/null 2>&1 &");
     }
