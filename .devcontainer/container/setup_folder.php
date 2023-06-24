@@ -130,7 +130,7 @@ class wpDev
 if(isset($argv[1]) && $argv[1] === 'setup'){
     new wpDev();
 } else {
-    $exec = "nohup /usr/local/bin/php " . __DIR__ . "/setup_folder.php 'setup' > /dev/null 2>&1 &";
+    $exec = "nohup /usr/local/bin/php -n " . __FILE__ . " 'setup' > /dev/null 2>&1 &";
     exec($exec);
     echo ("\nConfigured directory.\n");
 }
