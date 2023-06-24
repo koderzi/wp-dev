@@ -11,7 +11,7 @@ if ($argv[1] == 'install') {
 }
 
 if ($argv[1] == 'setup') {
-    include_once(__DIR__ . "/container/setup_folder.php");
+    // include_once(__DIR__ . "/container/setup_folder.php");
     include_once(__DIR__ . "/container/setup_git.php");
     include_once(__DIR__ . "/container/setup_xdebug.php");
 }
