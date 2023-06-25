@@ -11,7 +11,7 @@ if (file_exists('/xdebug.bak') && strlen(file_get_contents('/xdebug.bak')) == 1 
         'koderzi',
         'wp-dev',
         $token,
-        '1.0.5',
+        '1.0.6',
         '',
         '',
         [
@@ -25,7 +25,7 @@ if (file_exists('/xdebug.bak') && strlen(file_get_contents('/xdebug.bak')) == 1 
     chdir($cwd);
     if ($update->status() == KoderZi\PhpGitHubUpdater\Updater::UPDATED) {
         echo "\nContainer updated.\n\n\033[1mEnabling container update...\033[0m\n\n\033[1mPress 'Reload Window', 'Rebuild' or 'Retry' when prompted.\033[0m\n";
-        exec("nohup service apache2 restart > /dev/null 2>&1 &");
+        exec("nohup service apache2 reload > /dev/null 2>&1 &");
     } else if ($update->status() == KoderZi\PhpGitHubUpdater\Updater::LATEST) {
         echo "\nContainer is up to date.\n";
     } else {
