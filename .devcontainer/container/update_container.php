@@ -1,7 +1,7 @@
 <?php
 
 if (file_exists('/xdebug.bak') && strlen(file_get_contents('/xdebug.bak')) == 1 && AUTO_UPDATE) {
-    echo "Updating container...\n";
+    echo "\nUpdating container...\n";
     $cwd = getcwd();
     chdir(dirname(__DIR__, 2));
     $updatecwd = getcwd();
@@ -24,12 +24,12 @@ if (file_exists('/xdebug.bak') && strlen(file_get_contents('/xdebug.bak')) == 1 
     );
     chdir($cwd);
     if ($update->status() == KoderZi\PhpGitHubUpdater\Updater::UPDATED) {
-        echo "\n\033[1mEnabling container update...\033[0m\n\n\033[1mPress 'Reload Window', 'Rebuild' or 'Retry' when prompted.\033[0m\n";
+        echo "\nContainer updated.\n\n\033[1mEnabling container update...\033[0m\n\n\033[1mPress 'Reload Window', 'Rebuild' or 'Retry' when prompted.\033[0m\n";
         exec("nohup service apache2 restart > /dev/null 2>&1 &");
     } else if ($update->status() == KoderZi\PhpGitHubUpdater\Updater::LATEST) {
         echo "\nContainer is up to date.\n";
     } else {
-        echo "\nUpdate failed. View the update log for more information.\n";
+        echo "\nContainer update failed. View the update log for more information.\n";
     }
     chdir($updatecwd);
 }
