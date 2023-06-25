@@ -95,6 +95,6 @@
 			]
 		}
 	},
-	"postCreateCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; if [ -d $d/.devcontainer ]; then dir=$(basename $d); break; fi; done && php /workspaces/$dir/.devcontainer/init-container.php 'install'",
-	"postAttachCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; if [ -d $d/.devcontainer ]; then dir=$(basename $d); break; fi; done && php /workspaces/$dir/.devcontainer/init-container.php 'setup'"
+	"postCreateCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; if [ -d $d/.devcontainer ]; then dir=$(basename $d); break; fi; done && php -n /workspaces/$dir/.devcontainer/init-container.php 'install'",
+	"postAttachCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; if [ -d $d/.devcontainer ]; then dir=$(basename $d); break; fi; done && php -n /workspaces/$dir/.devcontainer/init-container.php 'setup'"
 }
