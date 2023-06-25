@@ -5,7 +5,6 @@ if (isset($argv[1]) && $argv[1] === 'monitor') {
     new DirectoryManager();
 } else {
     $exec = "nohup /usr/local/bin/php -n " . __FILE__ . " 'monitor' > /dev/null 2>&1 &";
-    echo ("\nConfiguring directory.\n");
     exec($exec);
     echo ("\nConfigured directory.\n");
 }

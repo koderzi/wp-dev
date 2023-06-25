@@ -54,7 +54,7 @@ To include a plugin or theme from other repositories, follow the steps below:
 
 ## Auto-update
 
-By default, auto-updates are enabled for all files excluding `configuration`, `plugins`, `themes` folders and `devcontainer.json` file. This means that you can develop your WordPress plugins and themes, and also save your configuration files, like the workspace configuration file, into the these folder. This simplifies the process of staying up-to-date with the latest changes and improvements.
+By default, auto-updates are enabled for all files and folders excluding files in `configuration`, `plugins` and `themes` folders. This means that you can develop your WordPress plugins and themes, and also save your configuration files, like the workspace configuration file, into the these folder. This simplifies the process of staying up-to-date with the latest changes and improvements.
 
 To disable auto update, you can find the `init-container.php` file in the `.devcontainer folder` and change the `AUTO_UPDATE` value to false at line `3` as follows:
 
