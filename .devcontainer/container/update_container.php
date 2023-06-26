@@ -11,7 +11,7 @@ if (file_exists('/xdebug.bak') && strlen(file_get_contents('/xdebug.bak')) == 1 
         'koderzi',
         'wp-dev',
         $token,
-        '1.0.6',
+        '1.0.5',
         '',
         '',
         [
