@@ -26,7 +26,7 @@ if ($update->status() == KoderZi\PhpGitHubUpdater\Updater::UPDATED) {
     echo "\nContainer updated.\n";
     $reload = true;
 } else if ($update->status() == KoderZi\PhpGitHubUpdater\Updater::LATEST) {
-    echo "\nContainer is up to date.\n";
+    echo "\nContainer already up to date.\n";
 } else {
     echo "\nContainer update failed. View the update log for more information.\n";
 }
