@@ -12,9 +12,8 @@ if ($argv[1] == 'setup') {
     include_once(__DIR__ . "/container/setup_folder.php");
     include_once(__DIR__ . "/container/setup_git.php");
     include_once(__DIR__ . "/container/setup_xdebug.php");
+    include_once(__DIR__ . "/container/update_container.php");
 }
-
-include_once(__DIR__ . "/container/update_container.php");
 
 if ($reload) {
     include_once(__DIR__ . "/container/reload_apache2.php");
