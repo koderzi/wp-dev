@@ -10,7 +10,7 @@ $update = new KoderZi\PhpGitHubUpdater\Updater(
     'koderzi',
     'wp-dev',
     $token,
-    '1.0.5',
+    '1.0.6',
     '',
     '',
     [
