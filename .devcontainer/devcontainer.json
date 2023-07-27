@@ -94,7 +94,5 @@
 				"MichaelCurrin.auto-commit-msg"
 			]
 		}
-	},
-	"postCreateCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; if [ -d $d/.devcontainer ]; then dir=$(basename $d); break; fi; done && php -n -c '/usr/local/etc/php/conf.d/docker-php-ext-zip.ini' /workspaces/$dir/.devcontainer/container/init-container.php 'install'",
-	"postAttachCommand": "for d in /workspaces/*/ ; do if [ ! -d $d/.devcontainer ]; then continue; fi; if [ -d $d/.devcontainer ]; then dir=$(basename $d); break; fi; done && php -n -c '/usr/local/etc/php/conf.d/docker-php-ext-zip.ini' /workspaces/$dir/.devcontainer/container/init-container.php 'setup'"
+	}
 }
