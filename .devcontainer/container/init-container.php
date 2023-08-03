@@ -9,12 +9,12 @@ if ($argv[1] == 'install') {
 }
 
 if ($argv[1] == 'setup') {
-    include_once(__DIR__ . "/setup_folder.php");
-    include_once(__DIR__ . "/setup_git.php");
-    include_once(__DIR__ . "/setup_xdebug.php");
-    include_once(__DIR__ . "/update_container.php");
+    // include_once(__DIR__ . "/setup_folder.php");
+    // include_once(__DIR__ . "/setup_git.php");
+    // include_once(__DIR__ . "/setup_xdebug.php");
+    // include_once(__DIR__ . "/update_container.php");
 }
 
 if ($reload) {
-    include_once(__DIR__ . "/reload_apache2.php");
+    // include_once(__DIR__ . "/reload_apache2.php");
 }
