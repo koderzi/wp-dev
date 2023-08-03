@@ -7,10 +7,6 @@ if (!file_exists('/usr/local/etc/php/conf.d/xdebug.ini')) {
 
 echo "Configured xdebug.\n";
 
-if (file_exists('/xdebug.bak')) {
-    exec('echo "" > /xdebug.bak');
-    return;
+if (!file_exists('/reload.bak')) {
+    exec('echo "true" > /reload.bak');
 }
-
-$reload = true;
-exec('echo "activating" > /xdebug.bak');

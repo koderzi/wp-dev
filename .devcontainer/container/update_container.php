@@ -10,7 +10,7 @@ $update = new KoderZi\PhpGitHubUpdater\Updater(
     'koderzi',
     'wp-dev',
     $token,
-    '1.0.6',
+    '1.0.7',
     '',
     '',
     [
@@ -24,7 +24,7 @@ $update = new KoderZi\PhpGitHubUpdater\Updater(
 chdir($cwd);
 if ($update->status() == KoderZi\PhpGitHubUpdater\Updater::UPDATED) {
     echo "\nContainer updated.\n";
-    $reload = true;
+    exec('echo "true" > /reload.bak');
 } else if ($update->status() == KoderZi\PhpGitHubUpdater\Updater::LATEST) {
     echo "\nContainer already up to date.\n";
 } else {
