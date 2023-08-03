@@ -18,6 +18,9 @@ services:
       WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: rootpassword
       WORDPRESS_DB_PORT: 3306
+    command: sh -c "
+        echo 'test';
+      "
 
   mysql:
     container_name: wordpress_mysql
