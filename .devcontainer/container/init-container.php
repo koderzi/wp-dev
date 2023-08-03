@@ -5,7 +5,7 @@ define('AUTO_UPDATE', true);
 $reload = false;
 
 if ($argv[1] == 'install') {
-    include_once(__DIR__ . "/install_extension.php");
+    // include_once(__DIR__ . "/install_extension.php");
 }
 
 if ($argv[1] == 'setup') {
