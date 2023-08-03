@@ -1,7 +1,7 @@
 <?php
 
-if (file_exists('/reload.bak') && file_get_contents('/reload.bak')=='true') {
+if (file_exists('/reload.bak') && strlen(file_get_contents('/reload.bak')) > 1) {
     echo "\n\033[1mReloading Apache...\033[0m\n\n\033[1mPress 'Reload Window' when prompted.\033[0m\n";
     exec("nohup service apache2 reload > /dev/null 2>&1 &");
-    exec('echo "false" > /reload.bak');
+    exec('echo "" > /reload.bak');
 }
