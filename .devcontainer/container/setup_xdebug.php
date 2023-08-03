@@ -12,5 +12,4 @@ if (file_exists('/xdebug.bak')) {
     return;
 }
 
-$reload = true;
-exec('echo "activating" > /xdebug.bak');
+exec('echo "reload" > /xdebug.bak');

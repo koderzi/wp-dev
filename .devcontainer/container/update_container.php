@@ -24,7 +24,7 @@ $update = new KoderZi\PhpGitHubUpdater\Updater(
 chdir($cwd);
 if ($update->status() == KoderZi\PhpGitHubUpdater\Updater::UPDATED) {
     echo "\nContainer updated.\n";
-    $reload = true;
+    exec('echo "reload" > /xdebug.bak');
 } else if ($update->status() == KoderZi\PhpGitHubUpdater\Updater::LATEST) {
     echo "\nContainer already up to date.\n";
 } else {
