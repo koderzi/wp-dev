@@ -89,8 +89,7 @@
 			"extensions": [
 				"xdebug.php-debug",
 				"wordpresstoolbox.wordpress-toolbox",
-				"bmewburn.vscode-intelephense-client",
-				"MichaelCurrin.auto-commit-msg"
+				"bmewburn.vscode-intelephense-client"
 			]
 		}
 	},
