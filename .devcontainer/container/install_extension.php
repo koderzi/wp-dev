@@ -1,16 +1,4 @@
 <?php
-echo "\nUpdating apt-get...\n\n";
-$aptget = exec("apt-get update 2>&1", $aptgetArray, $aptgetCode);
-if ($aptgetCode !== 0) {
-    echo "\nError updating apt-get: $aptget\n";
-    exit(1);
-}
-echo "Installing git...\n";
-$git = exec("apt-get install -y git 2>&1", $gitArray, $gitCode);
-if ($gitCode !== 0) {
-    echo "\nError installing git: $git\n";
-    exit(1);
-}
 echo "Installing xdebug...\n";
 $xdebug = exec("pecl install xdebug", $xdebugArray, $xdebugCode);
 if ($xdebugCode !== 0) {
