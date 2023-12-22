@@ -1,4 +1,4 @@
-# wp-dev - Dockerized WordPress Development Environment (Auto-Update)
+# wp-dev - Dockerized WordPress Development Environment
 
 ## Introduction
 
@@ -9,7 +9,6 @@ This repository is a development environment for WordPress using VSCode and Dev 
 This repository provides a number of features that make it easy to set up and use a local WordPress environment for development purposes:
 
 - **Pre-installed Git and Xdebug**: The development environment comes with Git and Xdebug pre-installed, allowing you to easily manage your code and debug your applications.
-- **Auto-update environment**: The environment is set up for auto-update, which means that any updates made to the original template repository will be reflected in your duplicated repository automatically. This makes it easy to keep your development environment up-to-date with the latest changes and improvements.
 - **Easy plugin and theme integration**: The environment makes it easy to include plugins and themes from other repositories, allowing you to quickly integrate third-party code into your WordPress application.
 - **Fast and easy setup**: The development environment is Dockerized, making it easy to set up and use on any system that supports Docker. The provided instructions are easy to follow and should have you up and running in no time.
 - **Customizable**: The environment is highly customizable, allowing you to configure it to meet your specific needs. You can easily add or remove plugins and themes, and modify the environment to suit your development workflow.
@@ -53,17 +52,3 @@ To include a plugin or theme from other repositories, follow the steps below:
    - Plugin: /workspaces/your_duplicated_repo/plugins
    - Theme: /workspaces/your_duplicated_repo/themes
 5. Then click open to open the cloned repository to start developing.
-
-## Auto-update
-
-By default, auto-updates are enabled for all files and folders excluding files in `configuration`, `plugins` and `themes` folders. This means that you can develop your WordPress plugins and themes, and also save your configuration files, like the workspace configuration file into those folder. This simplifies the process of staying up-to-date with the latest changes and improvements.
-
-To disable auto update, you can find the `init-container.php` file in the `.devcontainer folder` and change the `AUTO_UPDATE` value to `false` at line `3` as follows:
-
-```
-   define('AUTO_UPDATE', false);
-```
-
-This will prevent automatic updates from occurring.
-
-> Note: Please note that this GitHub template is set up for auto-update, which means that any updates made to the original template repository will be reflected in your duplicated repository automatically. This repository is intended for development purposes only. Do not use it in production environments.
