@@ -10,7 +10,6 @@ on:
 jobs:
   initial_setup:
     runs-on: ubuntu-latest
-    if: github.event.head_commit.message == 'Initial commit'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -41,7 +40,7 @@ jobs:
           fi
 
       - name: Remove initial setup workflow
-        run: rm .github/workflows/init-setup.yml
+        run: rm -rf .github
         continue-on-error: true
 
       - name: Commit and push changes
