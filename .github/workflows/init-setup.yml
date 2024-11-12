@@ -1,7 +1,6 @@
 name: Initial Setup
 
-on:
-  create:
+on: push
 
 jobs:
   initial_setup:
