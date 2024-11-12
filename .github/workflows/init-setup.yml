@@ -1,7 +1,7 @@
 name: Initial Setup
 
 on:
-  created:
+  create:
 
 jobs:
   initial_setup:
