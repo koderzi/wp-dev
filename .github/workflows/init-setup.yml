@@ -2,13 +2,6 @@ name: Initial Setup
 
 on:
   push:
-    # Run only if there’s a single commit in the default branch
-    branches:
-      - main
-    paths:
-      - '**'
-    # This filters the workflow to only trigger if there's one commit
-    # We use a conditional to trigger the workflow only on the first commit
     if: github.event.commits.length == 1
 
 jobs:
