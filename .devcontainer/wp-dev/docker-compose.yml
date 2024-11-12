@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   wordpress:
-    container_name: {REPO_NAME}_web
+    container_name: wp-dev_web
     depends_on:
       - mysql
     image: wordpress:latest
@@ -20,7 +20,7 @@ services:
       WORDPRESS_DB_PORT: 3306
 
   mysql:
-    container_name: {REPO_NAME}_mysql
+    container_name: wp-dev_mysql
     image: mysql:latest
     volumes:
       - db_data:/var/lib/mysql
