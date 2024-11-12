@@ -1,0 +1,64 @@
+name: Initial Setup
+
+on: push
+
+jobs:
+  initial_setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Check if only one commit exists
+        id: check_initial_commit
+        run: |
+          # Check if there's only one commit in the repository
+          if [ "$(git rev-list --count HEAD)" -eq 1 ]; then
+            echo "is_initial_commit=true" >> $GITHUB_ENV
+          else
+            echo "is_initial_commit=false" >> $GITHUB_ENV
+          fi
+
+      - name: Rename Container Name
+        if: env.is_initial_commit == 'true'
+        run: |
+          # Extract the repository name from GITHUB_REPOSITORY
+          REPO_NAME=$(echo "${GITHUB_REPOSITORY##*/}")
+
+          # Replace {REPO_NAME} in docker-compose.yml
+          sed -i "s/{REPO_NAME}/${REPO_NAME}/g" .devcontainer/docker/docker-compose.yml
+
+      - name: Rename Folder Name
+        if: env.is_initial_commit == 'true'
+        run: |
+          # Extract the repository name from GITHUB_REPOSITORY
+          REPO_NAME=$(echo "${GITHUB_REPOSITORY##*/}")
+          
+          # Define the target folder path and the new name
+          TARGET_FOLDER=".devcontainer/docker"
+          NEW_FOLDER=".devcontainer/${REPO_NAME}"
+          
+          # Rename if the target folder exists
+          if [ -d "$TARGET_FOLDER" ]; then
+            mv "$TARGET_FOLDER" "$NEW_FOLDER"
+            echo "Renamed $TARGET_FOLDER to $NEW_FOLDER"
+          else
+            echo "Folder $TARGET_FOLDER does not exist, skipping rename."
+          fi
+
+      - name: Remove initial setup workflow
+        if: env.is_initial_commit == 'true'
+        run: rm -rf .github
+        continue-on-error: true
+
+      - name: Commit and push changes
+        if: env.is_initial_commit == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git add -A
+          git commit -m "Rename .devcontainer/docker and remove first-run workflow after initialization"
+          git push
