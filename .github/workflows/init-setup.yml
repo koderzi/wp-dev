@@ -1,11 +1,7 @@
 name: Initial Setup
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/init-setup.yml"
+  created:
 
 jobs:
   initial_setup:
