@@ -1,6 +1,15 @@
 name: Initial Setup
 
-on: push
+on:
+  push:
+    # Run only if there’s a single commit in the default branch
+    branches:
+      - main
+    paths:
+      - '**'
+    # This filters the workflow to only trigger if there's one commit
+    # We use a conditional to trigger the workflow only on the first commit
+    if: github.event.commits.length == 1
 
 jobs:
   initial_setup:
@@ -9,18 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Check if only one commit exists
-        id: check_initial_commit
-        run: |
-          # Check if there's only one commit in the repository
-          if [ "$(git rev-list --count HEAD)" -eq 1 ]; then
-            echo "::set-output name=is_initial_commit::true"
-          else
-            echo "::set-output name=is_initial_commit::false"
-          fi
-
       - name: Rename Container Name
-        if: steps.check_initial_commit.outputs.is_initial_commit == 'true'
         run: |
           # Extract the repository name from GITHUB_REPOSITORY
           REPO_NAME=$(echo "${GITHUB_REPOSITORY##*/}")
@@ -29,7 +27,6 @@ jobs:
           sed -i "s/{REPO_NAME}/${REPO_NAME}/g" .devcontainer/docker/docker-compose.yml
 
       - name: Rename Folder Name
-        if: steps.check_initial_commit.outputs.is_initial_commit == 'true'
         run: |
           # Extract the repository name from GITHUB_REPOSITORY
           REPO_NAME=$(echo "${GITHUB_REPOSITORY##*/}")
@@ -47,12 +44,10 @@ jobs:
           fi
 
       - name: Remove initial setup workflow
-        if: steps.check_initial_commit.outputs.is_initial_commit == 'true'
         run: rm -rf .github
         continue-on-error: true
 
       - name: Commit and push changes
-        if: steps.check_initial_commit.outputs.is_initial_commit == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
