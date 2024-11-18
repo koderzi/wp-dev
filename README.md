@@ -26,10 +26,12 @@ Before using this repository, you need to have the following installed on your s
 To use this repository, follow the steps below:
 
 1. Create new repository by clicking the Use this template button above.
-2. Open your duplicated repository in VSCode using the command ">Dev Containers: Clone Repositories in Named Container Volume". You can name your container for easy referencing.
-3. (Optional) Enter your git username & email in the terminal.
-4. Once the container is ready, you can go to http://localhost:8080/wp-admin to start configuring your WordPress.
-5. You can put your dependency plugin or theme in the folder provided.
+2. Go to your repository settings, navigate to **Actions** > **General**, and set the **Workflow permissions** to **Read and write permissions**.
+3. After setting the permissions, remove the remove.txt file from the repository. You can do this by manually deleting the remove.txt file in your repository's file explorer and committing the changes via GitHub or your Git client.
+4. Open your duplicated repository in VSCode using the command ">Dev Containers: Clone Repositories in Named Container Volume". You can name your container for easy referencing.
+5. (Optional) Enter your git username & email in the terminal.
+6. Once the container is ready, you can go to http://localhost:8080/wp-admin to start configuring your WordPress.
+7. You can put your dependency plugin or theme in the folder provided.
 
 > Note: You may need to press `Reload Window`, `Rebuild` or `Retry` during container startup.
 
