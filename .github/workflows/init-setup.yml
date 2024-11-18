@@ -56,11 +56,11 @@ jobs:
 
       - name: Commit and push changes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${PERSONAL_ACCESS_TOKEN}@github.com/${{ github.repository }}
           git add -A
-          git commit -m "Rename .devcontainer/docker and remove first-run workflow after initialization"
-          git push
+          git commit -m "Rename .devcontainer/docker and remove first-run workflow after initialization" || echo "No changes to commit"
+          git push || echo "No changes to push"
