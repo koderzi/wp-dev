@@ -1,0 +1,50 @@
+name: Initial Setup
+
+on:
+  push:
+
+jobs:
+  initial_setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Ensure single commit in repository
+        run: |
+          # Count the total number of commits
+          COMMIT_COUNT=$(git rev-list --count HEAD)
+          
+          # Stop the workflow if the commit count is greater than 1
+          if [ "$COMMIT_COUNT" -gt 1 ]; then
+            echo "The repository has more than 1 commit ($COMMIT_COUNT commits). Stopping workflow."
+            exit 1
+          else
+            echo "The repository has $COMMIT_COUNT commit(s). Proceeding with the workflow."
+          fi
+
+      - name: Rename Container Name
+        run: |
+          # Extract the repository name from GITHUB_REPOSITORY
+          REPO_NAME=$(echo "${GITHUB_REPOSITORY##*/}")
+
+          # Replace {REPO_NAME} in docker-compose.yml
+          sed -i "s/{REPO_NAME}/${REPO_NAME}/g" .devcontainer/docker/docker-compose.yml
+
+      - name: Rename Folder Name
+        run: |
+          # Extract the repository name from GITHUB_REPOSITORY
+          REPO_NAME=$(echo "${GITHUB_REPOSITORY##*/}")
+          
+          # Define the target folder path and the new name
+          TARGET_FOLDER=".devcontainer/docker"
+          NEW_FOLDER=".devcontainer/${REPO_NAME}"
+          
+          # Rename if the target folder exists
+          if [ -d "$TARGET_FOLDER" ]; then
+            mv "$TARGET_FOLDER" "$NEW_FOLDER"
+            echo "Renamed $TARGET_FOLDER to $NEW_FOLDER"
+          else
+            echo "Folder $TARGET_FOLDER does not exist, skipping rename
