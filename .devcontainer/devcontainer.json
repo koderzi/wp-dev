@@ -1,6 +1,6 @@
 {
 	"name": "wp-dev",
-	"dockerComposeFile": "docker-compose.yaml",
+	"dockerComposeFile": "docker-compose.yml",
 	"service": "wordpress",
 	"workspaceFolder": "/",
 	"shutdownAction": "stopCompose",
