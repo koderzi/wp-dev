@@ -31,24 +31,7 @@ jobs:
           REPO_NAME=$(echo "${GITHUB_REPOSITORY##*/}")
 
           # Replace {REPO_NAME} in docker-compose.yml
-          sed -i "s/{REPO_NAME}/${REPO_NAME}/g" .devcontainer/docker/docker-compose.yml
-
-      - name: Rename Folder Name
-        run: |
-          # Extract the repository name from GITHUB_REPOSITORY
-          REPO_NAME=$(echo "${GITHUB_REPOSITORY##*/}")
-          
-          # Define the target folder path and the new name
-          TARGET_FOLDER=".devcontainer/docker"
-          NEW_FOLDER=".devcontainer/${REPO_NAME}"
-          
-          # Rename if the target folder exists
-          if [ -d "$TARGET_FOLDER" ]; then
-            mv "$TARGET_FOLDER" "$NEW_FOLDER"
-            echo "Renamed $TARGET_FOLDER to $NEW_FOLDER"
-          else
-            echo "Folder $TARGET_FOLDER does not exist, skipping rename."
-          fi
+          sed -i "s/{REPO_NAME}/${REPO_NAME}/g" .devcontainer/docker-compose.yml
 
       - name: Remove initial setup workflow
         run: rm -rf .github
